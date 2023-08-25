@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Router Example</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="module">
+    // Import necessary libraries
+    import React from 'https://cdn.skypack.dev/react@17.0.2';
+    import ReactDOM from 'https://cdn.skypack.dev/react-dom@17.0.2';
+    import { BrowserRouter as Router, Route, Link } from 'https://cdn.skypack.dev/react-router-dom@6.1.1';
+
+    // Create two components for different pages
+    const Home = () => <h1>This is the Home page</h1>;
+    const About = () => <h1>This is the About page</h1>;
+
+    // Create the main App component
+    const App = () => {
+      return (
+        <Router>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Route path="/" exact element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Router>
+      );
+    };
+
+    // Render the App component
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
